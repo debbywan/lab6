@@ -46,13 +46,15 @@ class Dialog : public QDialog
     int ifGameOver();  //game over or not
     void update(const int& t);
     ~Dialog();
-
+//public slots:
+   // void restart();
 protected:
     void keyPressEvent(QKeyEvent *event);
 
 private:
     QWidget * widget;
     int pane[4][4]; //board
+    QPushButton *restartBtn;
 
     Ui::Dialog *ui;
     QHash<int,QLabel*>labelHash;

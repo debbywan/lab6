@@ -175,7 +175,7 @@ void Dialog::rightmove() //右移
         }
     }
 }
-int Dialog::testup() //能否上移测试
+int Dialog::testup() //上一測試
 {
     int flag=0;
     for(int j=0;j<=3;j++)
@@ -188,7 +188,7 @@ int Dialog::testup() //能否上移测试
         }
     return flag;
 }
-int Dialog::testdown() //测试能否下移
+int Dialog::testdown() //下移test
 {
     int flag=0;
     for(int j=0;j<=3;j++)
@@ -201,7 +201,7 @@ int Dialog::testdown() //测试能否下移
         }
     return flag;
 }
-int Dialog::testleft() //测试能否左移
+int Dialog::testleft() //左移test
 {
     int flag=0;
     for(int i=0;i<=3;i++)
@@ -214,7 +214,7 @@ int Dialog::testleft() //测试能否左移
         }
     return flag;
 }
-int Dialog::testright() //测试能否右移
+int Dialog::testright() //右移test
 {
     int flag=0;
     for(int i=0;i<=3;i++)
@@ -227,7 +227,7 @@ int Dialog::testright() //测试能否右移
         }
     return flag;
 }
-int Dialog::panemax() //棋盘最大数
+int Dialog::panemax() //pane最大數
 {
     int max=pane[0][0];
     for(int i=0;i<=3;i++)
@@ -236,7 +236,7 @@ int Dialog::panemax() //棋盘最大数
                 max=pane[i][j];
     return max;
 }
-int Dialog::ifwin() //判断是否胜利
+int Dialog::ifwin() //check win
 {
     int flag=0;
     if(panemax()==2048)
@@ -246,7 +246,7 @@ int Dialog::ifwin() //判断是否胜利
     }
     return flag;
 }
-int Dialog::ifGameOver()  //判断是否游戏结束
+int Dialog::ifGameOver()  //check game end or not
 {
     int flag=0;
     if(testup()+ testdown() + testleft() + testright() == 0)
@@ -339,12 +339,9 @@ void Dialog::update(const int &t)
                 labelHash.value(p)->setText(" ");
             QFont ftt;
             ftt.setPointSize(28);
-            //labelHash.value(p)->setFont(ftt);
-           // QPalette pa;
-           // pa.setColor(QPalette::WindowText,Qt::white);
-            //labelHash.value(p)->setPalette(pa);
+
             labelHash.value(p)->setAlignment(Qt::AlignCenter);
-            //labelHash.value(p)->setStyleSheet("background-color:red");
+
         }
     ui->lcdNumber->display(QString::number(score));
    ui->lcdNumber_2->display(QString::number(t));
@@ -356,4 +353,5 @@ Dialog::~Dialog()
     delete layout;
     delete widget;
     delete ui;
+
 }
